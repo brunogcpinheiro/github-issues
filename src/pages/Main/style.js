@@ -19,7 +19,7 @@ export const Sidebar = styled.div`
 `;
 
 export const Form = styled.form`
-    margin-top: 20px;
+    margin-top: 5px;
     display: flex;
     width: 100%;
     
@@ -54,14 +54,33 @@ export const List = styled.ul`
 
 export const ListItem = styled.li`
     display: flex;
-    margin-top: 20px;
+    
+    a {
+       display: flex;
+       flex-flow: row wrap;
+       text-decoration: none;
+       width: 100%;
+       margin-top: 20px;
+       
+       &:active, &:visited, &:link {
+           color: #000;
+       }
+    }
 
     img {
         width: 45px;
         height: 45px;
     }
     
+    h4, p {
+        margin-left: 10px;
+    }
+    
     p {
+        color: #999;
+    }
+    
+    span {
         color: #999;
     }
 `;
@@ -81,12 +100,16 @@ export const Header = styled.div`
     background: #fff;
     padding: 0 35px;
     align-items: center;
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(230,230,230,1);
+    -moz-box-shadow: 0px 5px 20px 0px rgba(230,230,230,1);
+    box-shadow: 0px 5px 20px 0px rgba(230,230,230,1);
     
     select {
         height: 42px;
         border: 1px solid #ddd;
         padding: 0 35px;
         color: #999;
+        border-radius: 5px;
     }
 `;
 
