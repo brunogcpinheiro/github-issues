@@ -163,5 +163,6 @@ export const Issue = styled.div`
         margin: 5px 0 0 5px;
         color: #fff;
         cursor: pointer;
+        border-radius: 3px;
     }
 `;

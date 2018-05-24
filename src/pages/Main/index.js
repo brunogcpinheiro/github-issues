@@ -60,32 +60,8 @@ const Main = () => (
                 <Issue>
                     <img src="https://avatars1.githubusercontent.com/u/13948019?v=4" alt="Avatar"/>
                     <div>
-                        <p>Lorem ipsum dolor</p>
+                        <p>Lorem ipsum dolor...</p>
                         <p>brunogcpinheiro</p>
-                        <button type="submit"><i className="fas fa-external-link-alt"></i>Abrir Issue</button>
-                    </div>
-                </Issue>
-                <Issue>
-                    <img src="https://avatars0.githubusercontent.com/u/28929274?v=4" alt="Avatar"/>
-                    <div>
-                        <p>Lorem ipsum dolor</p>
-                        <p>rocketseat</p>
-                        <button type="submit"><i className="fas fa-external-link-alt"></i>Abrir Issue</button>
-                    </div>
-                </Issue>
-                <Issue>
-                    <img src="https://avatars2.githubusercontent.com/u/2254731?v=4" alt="Avatar"/>
-                    <div>
-                        <p>Lorem ipsum dolor</p>
-                        <p>diego3g</p>
-                        <button type="submit"><i className="fas fa-external-link-alt"></i>Abrir Issue</button>
-                    </div>
-                </Issue>
-                <Issue>
-                    <img src="https://avatars2.githubusercontent.com/u/2254731?v=4" alt="Avatar"/>
-                    <div>
-                        <p>Lorem ipsum dolor</p>
-                        <p>diego3g</p>
                         <button type="submit"><i className="fas fa-external-link-alt"></i>Abrir Issue</button>
                     </div>
                 </Issue>
