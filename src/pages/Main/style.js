@@ -116,4 +116,53 @@ export const Header = styled.div`
 export const Content = styled.div`
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+`;
+
+export const Issue = styled.div`
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 29%;
+    background: #fff;
+    padding: 10px;
+    margin: 20px;
+    -webkit-box-shadow: 0px 5px 20px 0px rgba(230,230,230,1);
+    -moz-box-shadow: 0px 5px 20px 0px rgba(230,230,230,1);
+    box-shadow: 0px 5px 20px 0px rgba(230,230,230,1);
+    
+    img {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        margin-left: 5px;
+    }
+    
+    div {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    p:first-child {
+        font-size: 0.9em;
+        font-weight: bold;
+        margin: 5px 0 0 5px;
+    }
+    
+    p:nth-child(2) {
+        font-size: 0.8em;
+        color: #999;
+        margin: 5px 0 0 5px;
+    }
+    
+    button {
+        border: none;
+        padding: 5px 20px;
+        background-color: #B286D1;
+        margin: 5px 0 0 5px;
+        color: #fff;
+        cursor: pointer;
+    }
 `;
