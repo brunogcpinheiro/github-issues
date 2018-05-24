@@ -16,7 +16,7 @@ const Main = () => (
         <Sidebar>
             <Form>
                 <input type="text" placeholder="Novo repositório" />
-                <button type="submit">OK</button>
+                <button type="submit"><i className="fas fa-plus"></i></button>
             </Form>
             <List>
                 <ListItem>
@@ -44,10 +44,10 @@ const Main = () => (
         <Panel>
             <Header>
                 <ListItem>
-                    <img src="https://cdn-images-1.medium.com/max/1600/1*wqYF-8Dmh7LhtLkKfERc3Q.png" alt="" />
+                    <img src="http://formatjs.io/img/react.svg" alt="" />
                     <div>
-                        <h4>vue</h4>
-                        <p>VueJs</p>
+                        <h4>react</h4>
+                        <p>Facebook</p>
                     </div>
                 </ListItem>
                 <select name="issues">
@@ -62,7 +62,7 @@ const Main = () => (
                     <div>
                         <p>Lorem ipsum dolor</p>
                         <p>brunogcpinheiro</p>
-                        <button type="submit">Abrir Issue</button>
+                        <button type="submit"><i className="fas fa-external-link-alt"></i>Abrir Issue</button>
                     </div>
                 </Issue>
                 <Issue>
@@ -70,7 +70,7 @@ const Main = () => (
                     <div>
                         <p>Lorem ipsum dolor</p>
                         <p>rocketseat</p>
-                        <button type="submit">Abrir Issue</button>
+                        <button type="submit"><i className="fas fa-external-link-alt"></i>Abrir Issue</button>
                     </div>
                 </Issue>
                 <Issue>
@@ -78,7 +78,15 @@ const Main = () => (
                     <div>
                         <p>Lorem ipsum dolor</p>
                         <p>diego3g</p>
-                        <button type="submit">Abrir Issue</button>
+                        <button type="submit"><i className="fas fa-external-link-alt"></i>Abrir Issue</button>
+                    </div>
+                </Issue>
+                <Issue>
+                    <img src="https://avatars2.githubusercontent.com/u/2254731?v=4" alt="Avatar"/>
+                    <div>
+                        <p>Lorem ipsum dolor</p>
+                        <p>diego3g</p>
+                        <button type="submit"><i className="fas fa-external-link-alt"></i>Abrir Issue</button>
                     </div>
                 </Issue>
             </Content>
