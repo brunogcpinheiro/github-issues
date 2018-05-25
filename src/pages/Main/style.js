@@ -57,7 +57,8 @@ export const ListItem = styled.li`
     
     a {
        display: flex;
-       flex-flow: row wrap;
+       align-items: center;
+       justify-content: space-between;
        text-decoration: none;
        width: 100%;
        margin-top: 20px;
@@ -65,6 +66,10 @@ export const ListItem = styled.li`
        &:active, &:visited, &:link {
            color: #000;
        }
+    }
+    
+    div {
+        flex: 1;
     }
 
     img {
