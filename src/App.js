@@ -5,13 +5,11 @@ import './styles/global';
 import Main from './pages/Main/index';
 
 class App extends Component {
-    state = {
-        
-    };
-    
-    render() {
-        return <Main />;
-    }
+  state = {};
+
+  render() {
+    return <Main />;
+  }
 }
 
 export default App;

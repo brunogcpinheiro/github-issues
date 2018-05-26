@@ -1,73 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import { 
-    Container, 
-    Sidebar, 
-    Form, 
-    List, 
-    ListItem,
-    Panel,
-    Header,
-    Content,
-    Issue } from './style';
+import api from '../../services/api';
 
-const Main = () => (
-    <Container>
-        <Sidebar>
-            <Form>
-                <input type="text" placeholder="Novo repositório" />
-                <button type="submit"><i className="fas fa-plus"></i></button>
-            </Form>
-            <List>
-                <ListItem>
-                    <a href="">
-                        <img src="http://formatjs.io/img/react.svg" alt="" />
-                        <div>
-                            <h4>react</h4>
-                            <p>Facebook</p>
-                        </div>
-                        <span>></span>
-                    </a>
-                </ListItem>
-                <ListItem>
-                    <a href="">
-                        <img src="https://cdn-images-1.medium.com/max/1600/1*wqYF-8Dmh7LhtLkKfERc3Q.png" alt="" />
-                        <div>
-                            <h4>vue</h4>
-                            <p>VueJs</p>
-                        </div>
-                        <span>></span>
-                    </a>
-                </ListItem>
-            </List>
-        </Sidebar>
-        <Panel>
-            <Header>
-                <ListItem>
-                    <img src="http://formatjs.io/img/react.svg" alt="" />
-                    <div>
-                        <h4>react</h4>
-                        <p>Facebook</p>
-                    </div>
-                </ListItem>
-                <select name="issues">
-                  <option value="todas">Todas</option>
-                  <option value="abertas">Abertas</option>
-                  <option value="fechadas">Fechadas</option>
-                </select>
-            </Header>
-            <Content>
-                <Issue>
-                    <img src="https://avatars1.githubusercontent.com/u/13948019?v=4" alt="Avatar"/>
-                    <div>
-                        <p>Lorem ipsum dolor...</p>
-                        <p>brunogcpinheiro</p>
-                        <button type="submit"><i className="fas fa-external-link-alt"></i>Abrir Issue</button>
-                    </div>
-                </Issue>
-            </Content>
-        </Panel>
-    </Container>
-);
+import Sidebar from '../../components/Sidebar';
+import Panel from '../../components/Panel';
 
-export default Main;
+import { Container, Menu, Form } from './style';
+
+export default class Main extends Component {
+  state = {
+    repositoryInput: '',
+    repositories: [],
+    currentRepository: {},
+  };
+
+  handleRepositories = async (e) => {
+    e.preventDefault();
+
+    const { data } = await api.get(`repos/${this.state.repositoryInput}`);
+
+    this.setState({
+      repositoryInput: '',
+      repositories: [...this.state.repositories, data],
+    });
+  };
+
+  handleSetCurrentRepo = async (repo, e) => {
+    e.preventDefault();
+
+    await this.setState({
+      currentRepository: repo,
+    });
+
+    console.log(this.state.currentRepository);
+  };
+
+  render() {
+    return (
+      <Container>
+        <Menu>
+          <Form onSubmit={this.handleRepositories}>
+            <input
+              type="text"
+              placeholder="Novo repositório"
+              value={this.state.repositoryInput}
+              onChange={e => this.setState({ repositoryInput: e.target.value })}
+            />
+            <button type="submit">
+              <i className="fas fa-plus" />
+            </button>
+          </Form>
+          <Sidebar
+            repositories={this.state.repositories}
+            setCurrentRepository={this.handleSetCurrentRepo}
+          />
+        </Menu>
+        <Panel />
+      </Container>
+    );
+  }
+}
