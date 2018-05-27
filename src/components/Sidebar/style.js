@@ -6,6 +6,7 @@ export const List = styled.ul`
   margin-top: 20px;
   flex-direction: column;
   border-top: 1px solid #ddd;
+  height: 100vh;
 `;
 
 export const ListItem = styled.li`

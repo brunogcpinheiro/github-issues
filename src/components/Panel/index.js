@@ -2,14 +2,18 @@ import React from 'react';
 
 import { ContainerPanel, Header, ListItem, Content, Issue } from './style';
 
-const Panel = () => (
+const Panel = props => (
   <ContainerPanel>
     <Header>
       <ListItem>
-        <img src="http://formatjs.io/img/react.svg" alt="" />
+        {props.current.name ? (
+          <img src={props.current.avatar} alt="Avatar" />
+        ) : (
+          <strong>Nenhum repositório selecionado</strong>
+        )}
         <div>
-          <h4>react</h4>
-          <p>Facebook</p>
+          <h4>{props.current.name}</h4>
+          <p>{props.current.login}</p>
         </div>
       </ListItem>
       <select name="issues">
@@ -19,16 +23,18 @@ const Panel = () => (
       </select>
     </Header>
     <Content>
-      <Issue>
-        <img src="https://avatars1.githubusercontent.com/u/13948019?v=4" alt="Avatar" />
-        <div>
-          <p>Lorem ipsum dolor...</p>
-          <p>brunogcpinheiro</p>
-          <button type="submit">
-            <i className="fas fa-external-link-alt" />Abrir Issue
-          </button>
-        </div>
-      </Issue>
+      {props.issuesInfo.map(issue => (
+        <Issue key={issue.id}>
+          <img src={issue.user.avatar_url} alt={issue.user.login} />
+          <div>
+            <p>{issue.title}</p>
+            <p>{issue.user.login}</p>
+            <a href={issue.html_url} target="blank">
+              <i className="fas fa-external-link-alt" />Abrir Issue
+            </a>
+          </div>
+        </Issue>
+      ))}
     </Content>
   </ContainerPanel>
 );

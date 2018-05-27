@@ -88,7 +88,7 @@ export const Issue = styled.div`
   box-shadow: 0px 5px 20px 0px rgba(230, 230, 230, 1);
 
   img {
-    width: 54px;
+    max-width: 54px;
     height: 54px;
     border-radius: 50%;
     margin-left: 5px;
@@ -104,6 +104,10 @@ export const Issue = styled.div`
     font-size: 0.9em;
     font-weight: bold;
     margin: 5px 0 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 250px;
   }
 
   p:nth-child(2) {
@@ -112,7 +116,7 @@ export const Issue = styled.div`
     margin: 5px 0 0 5px;
   }
 
-  button {
+  a {
     border: none;
     padding: 5px 20px;
     background-color: #b286d1;
@@ -120,5 +124,6 @@ export const Issue = styled.div`
     color: #fff;
     cursor: pointer;
     border-radius: 3px;
+    text-decoration: none;
   }
 `;

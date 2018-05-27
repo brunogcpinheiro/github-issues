@@ -12,6 +12,7 @@ export default class Main extends Component {
     repositoryInput: '',
     repositories: [],
     currentRepository: {},
+    issues: [],
   };
 
   handleRepositories = async (e) => {
@@ -25,6 +26,14 @@ export default class Main extends Component {
     });
   };
 
+  handleIssues = async (url, e) => {
+    const { data: allIssues } = await api.get(`repos/${url} `);
+
+    this.setState({
+      issues: allIssues,
+    });
+  };
+
   handleSetCurrentRepo = async (repo, e) => {
     e.preventDefault();
 
@@ -32,7 +41,7 @@ export default class Main extends Component {
       currentRepository: repo,
     });
 
-    console.log(this.state.currentRepository);
+    this.handleIssues(`${repo.login}/${repo.name}/issues?state=all`, e);
   };
 
   render() {
@@ -55,7 +64,7 @@ export default class Main extends Component {
             setCurrentRepository={this.handleSetCurrentRepo}
           />
         </Menu>
-        <Panel />
+        <Panel current={this.state.currentRepository} issuesInfo={this.state.issues} />
       </Container>
     );
   }
