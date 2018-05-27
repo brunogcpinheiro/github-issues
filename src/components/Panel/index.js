@@ -16,10 +16,20 @@ const Panel = props => (
           <p>{props.current.login}</p>
         </div>
       </ListItem>
-      <select name="issues">
-        <option value="todas">Todas</option>
-        <option value="abertas">Abertas</option>
-        <option value="fechadas">Fechadas</option>
+      <select
+        id="filter-status"
+        defaultValue={`${props.current.login}/${props.current.name}/issues?state=all`}
+        onChange={e => props.changeStatusIssues(document.getElementById('filter-status').value, e)}
+      >
+        <option value={`${props.current.login}/${props.current.name}/issues?state=all`}>
+          Todas
+        </option>
+        <option value={`${props.current.login}/${props.current.name}/issues?state=open`}>
+          Abertas
+        </option>
+        <option value={`${props.current.login}/${props.current.name}/issues?state=closed`}>
+          Fechadas
+        </option>
       </select>
     </Header>
     <Content>

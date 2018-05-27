@@ -27,7 +27,9 @@ export default class Main extends Component {
   };
 
   handleIssues = async (url, e) => {
-    const { data: allIssues } = await api.get(`repos/${url} `);
+    e.preventDefault();
+
+    const { data: allIssues } = await api.get(`repos/${url}`);
 
     this.setState({
       issues: allIssues,
@@ -64,7 +66,11 @@ export default class Main extends Component {
             setCurrentRepository={this.handleSetCurrentRepo}
           />
         </Menu>
-        <Panel current={this.state.currentRepository} issuesInfo={this.state.issues} />
+        <Panel
+          current={this.state.currentRepository}
+          issuesInfo={this.state.issues}
+          changeStatusIssues={this.handleIssues}
+        />
       </Container>
     );
   }
